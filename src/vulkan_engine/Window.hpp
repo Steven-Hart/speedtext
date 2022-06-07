@@ -21,6 +21,7 @@ namespace vulkan_engine{
         Window &operator=(const Window&) = delete;
 
         bool shouldClose() {return glfwWindowShouldClose(window);}
+        void createWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
     private:
         void initWindow();
 
@@ -31,7 +32,5 @@ namespace vulkan_engine{
         GLFWwindow *window;
     };
 }
-
-
 
 #endif //SPEED_TEXT_WINDOW_HPP

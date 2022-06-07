@@ -7,6 +7,7 @@
 
 #include "Window.hpp"
 #include "Pipeline.hpp"
+#include "Device.hpp"
 
 namespace vulkan_engine{
     class Application {
@@ -17,10 +18,12 @@ namespace vulkan_engine{
         void run();
     private:
         Window window{WIDTH, HEIGHT, "Hello Vulkan"};
-        Pipeline pipeline{"shaders/compiled_shaders/simple_shader.vert.spv", "shaders/compiled_shaders/simple_shader.vert.spv"};
+        Device device{window};
+        Pipeline pipeline{device,
+                          "shaders/compiled_shaders/simple_shader.vert.spv",
+                          "shaders/compiled_shaders/simple_shader.vert.spv",
+                          Pipeline::defaultPipelineConfigInfo(WIDTH, HEIGHT)};
     };
 }
-
-
 
 #endif //SPEED_TEXT_APPLICATION_HPP
